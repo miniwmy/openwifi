@@ -33,12 +33,12 @@ Openwifi code has dual licenses. AGPLv3 is the opensource license. For non-opens
 
 board_name|board combination|status|SD card img
 -------|-------|----|----
-zc706_fmcs2|Xilinx ZC706 dev board + FMCOMMS2/3/4|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-2-32bit.img.xz)
-zed_fmcs2|Xilinx zed board + FMCOMMS2/3/4|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-2-32bit.img.xz)
-adrv9364z7020|ADRV9364Z7020 SOM|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-2-32bit.img.xz)
-adrv9361z7035|ADRV9361Z7035 SOM|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-2-32bit.img.xz)
-zc702_fmcs2|Xilinx ZC702 dev board + FMCOMMS2/3/4|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-2-32bit.img.xz)
-zcu102_fmcs2|Xilinx ZCU102 dev board + FMCOMMS2/3/4|Done|[64bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-2-64bit.img.xz)
+zc706_fmcs2|Xilinx ZC706 dev board + FMCOMMS2/3/4|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-3-32bit.img.xz)
+zed_fmcs2|Xilinx zed board + FMCOMMS2/3/4|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-3-32bit.img.xz)
+adrv9364z7020|ADRV9364Z7020 SOM|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-3-32bit.img.xz)
+adrv9361z7035|ADRV9361Z7035 SOM|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-3-32bit.img.xz)
+zc702_fmcs2|Xilinx ZC702 dev board + FMCOMMS2/3/4|Done|[32bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-3-32bit.img.xz)
+zcu102_fmcs2|Xilinx ZCU102 dev board + FMCOMMS2/3/4|Done|[64bit img](https://users.ugent.be/~xjiao/openwifi-1.1.0-taiyuan-3-64bit.img.xz)
 zcu102_9371|Xilinx ZCU102 dev board + ADRV9371|Future|None
 
 - board_name is used to identify FPGA design in openwifi-hw/boards/
@@ -55,6 +55,7 @@ zcu102_9371|Xilinx ZCU102 dev board + ADRV9371|Future|None
 [[Special note for 11b](#Special-note-for-11b)]
 [[Porting guide](#Porting-guide)]
 [[Cite openwifi project](#Cite-openwifi-project)]
+[[Openwifi paper](#Openwifi-paper)]
 
 ## Quick start
 - Burn openwifi board specific img file (from the table) into a SD card ("Open With Disk Image Writer". Or "dd" command after unzip). The SD card has two partitions: BOOT and rootfs. You need to config the **correct files in the BOOT partition** according to the **board you have** by operation on your computer: 
@@ -241,4 +242,8 @@ Any use of openwifi project which results in a publication should include a cita
             year = {2019},
 }
 ```
+## Openwifi paper
+
+[openwifi: a free and open-source IEEE802.11 SDR implementation on SoC](https://biblio.ugent.be/publication/8663043/file/8663044.pdf)
+
 Openwifi was born in [ORCA project](https://www.orca-project.eu/) (EU's Horizon2020 programme under agreement number 732174).
