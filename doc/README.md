@@ -10,6 +10,7 @@ Above figure shows software and hardware/FPGA modules that compose the openwifi 
 - [Regulation and channel config](#Regulation-and-channel-config)
 - [Analog and digital frequency design](#Analog-and-digital-frequency-design)
 - [Debug methods](#Debug-methods)
+- [Application notes](app_notes)
 
 ## Driver and software overall principle
 
@@ -89,7 +90,7 @@ module_name: **drv_xpu**
 
 reg_idx|meaning|comment
 -------|-------|----
-x|x|to be defined
+7|git revision when build the driver|example: return value 0071bc74 means git revision is 071bc74 (the 1st 0 must be removed!)
 
 module_name: **rf**
 
@@ -140,6 +141,7 @@ reg_idx|meaning|comment
 31|openwifi MAC address high 32bit|check XPU_REG_MAC_ADDR_write in sdr.c to see how we set MAC address to FPGA when NIC start
 58|TSF runtime value low  32bit|read only
 59|TSF runtime value high 32bit|read only
+63|git revision when build the FPGA|example: return value 065272ac means git revision is 65272ac (the 1st 0 must be removed!)
 
 ## Rx packet flow and filtering config
 
@@ -218,7 +220,7 @@ Linux mac80211 (struct ieee80211_ops openwifi_ops in sdr.c) uses the "config" AP
 
 ## Analog and digital frequency design
 
-Following figure shows the current openwifi analog and digital frequency design strategy. The Tx RF center frequency is tuned with 10MHz offset deliberately to ease Tx Lo leakage suppressed by Rx filter. This RF offset is pre-compensated by Tx DUC (Digital Up Converter) in FPGA (duc_bank_core.bd used by tx_intf.v). It combines AD9361's bandwidth, frequency, sampling rate and FPGA's digital down/up converter (ddc_bank_core.bd/duc_bank_core.bd) setting to achieve this example spectrum arrangement. Values in the figure are configurable in the openwifi design.
+Following figure shows the current openwifi analog and digital frequency design strategy. The Tx RF center frequency is tuned with 10MHz offset deliberately to ease Tx Lo leakage suppressed by Rx filter. This RF offset is pre-compensated by Tx DUC (Digital Up Converter) in FPGA (duc_bank_core.bd used by tx_intf.v). It combines AD9361's bandwidth, frequency, sampling rate and FPGA's digital down/up converter (ddc_bank_core.bd/duc_bank_core.bd) setting to achieve this example spectrum arrangement. Values in the figure are configurable in the openwifi design. Please be noticed that **ddc_bank_core.bd is not used anymore**. Because the digital and analog RX Lo is the same, mixer is not needed. Decimation by 2 is implemented in adc_intv.v.
 ![](./rf-digital-if-chain-spectrum.jpg)
 
 Above spectrum setting has two benefits:
